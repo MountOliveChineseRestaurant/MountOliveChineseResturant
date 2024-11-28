@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mount Olive Restaurant Data Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5; /* Soft light background for contrast */
+        }
+        header {
+            background-color: #B22222; /* Chinese red header */
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        main {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #444;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #007BFF; /* Soft blue background for buttons */
+            color: white;
+            padding: 15px 30px;
+            margin: 15px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+        .btn:active {
+            background-color: #004085; /* Even darker blue on click */
+            transform: translateY(0); /* Button returns to normal when clicked */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mount Olive Chinese Restaurant</h1>
+    </header>
+    <main>
+        <h2>Select an Option to Analyze Orders</h2>
+        <a href="all-time.html" class="btn">All Time</a>
+        <a href="weekday-sort.html" class="btn">Weekday Sort</a>
+    </main>
+</body>
+</html>
