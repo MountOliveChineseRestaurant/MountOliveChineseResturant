@@ -41,14 +41,14 @@
         }
         .menu {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
             margin: 20px 0;
             position: relative; /* Set position relative for the button placement */
         }
         .menu-item {
-            width: 48%; /* Make each image take up 48% of the container */
+            width: 48%; /* Default width for each menu item */
             height: auto;
             border-radius: 8px;
             overflow: hidden;
@@ -86,6 +86,22 @@
         }
         .translate-btn:hover {
             background-color: #d94d4d;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;  /* Stack the items vertically */
+            }
+            .menu-item {
+                width: 100%;  /* Take up full width on mobile */
+                margin-bottom: 20px; /* Add space between images */
+            }
+            .translate-btn {
+                position: relative;
+                bottom: 0;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -133,7 +149,7 @@
 <section id="contact">
     <h2>Contact Us</h2>
     <p>Address: 1025 N Breazeale Ave, Mt Olive, NC 28365</p>
-    <p>Phone: (919) 658-0600</p>
+    <p>Phone: <a href="tel:+19196580600">(919) 658-0600</a></p>
 </section>
 
 <footer>
