@@ -10,71 +10,78 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            background-color: #fafafa;
+            color: #333;
         }
+
         header {
             background-color: #f09b90;
             color: white;
-            padding: 20px 10%;
+            padding: 20px;
             text-align: center;
         }
+
         header h1 {
             margin: 0;
             font-size: 2.5em;
         }
+
         nav {
             background-color: #333;
-            padding: 10px 10%;
+            padding: 10px;
             text-align: center;
         }
+
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.1em;
+            text-transform: uppercase;
         }
+
         nav a:hover {
             text-decoration: underline;
         }
+
         section {
-            padding: 20px 10%;
+            padding: 40px 10%;
             text-align: center;
         }
+
+        h2 {
+            font-size: 2.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
         .menu {
             display: flex;
             justify-content: space-between;
             gap: 20px;
             flex-wrap: wrap;
             margin: 20px 0;
-            position: relative; /* Set position relative for the button placement */
         }
+
         .menu-item {
-            width: 48%; /* Default width for each menu item */
-            height: auto;
+            width: 48%;
             border-radius: 8px;
             overflow: hidden;
         }
+
         .menu-item img {
             width: 100%;
-            height: auto;
             border-radius: 8px;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-        /* Initially hide Spanish menu */
+
         .spanish-menu {
             display: none;
         }
+
         /* Style for the translate button */
         .translate-btn {
-            position: absolute;
-            bottom: -60px;  /* Ensure button is at the bottom */
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
+            margin: 20px auto;
             padding: 10px 20px;
             background-color: #a41e1e;
             color: white;
@@ -82,8 +89,8 @@
             font-size: 1.1em;
             cursor: pointer;
             border-radius: 5px;
-            z-index: 10;  /* Ensure the button is clickable */
         }
+
         .translate-btn:hover {
             background-color: #d94d4d;
         }
@@ -91,23 +98,18 @@
         /* Responsive Design for Mobile */
         @media (max-width: 768px) {
             .menu {
-                flex-direction: column;  /* Stack the items vertically */
-                align-items: center; /* Ensure items are centered */
-                position: relative;  /* Allow for relative positioning of the button */
+                flex-direction: column;
+                align-items: center;
             }
+
             .menu-item {
-                width: 100%;  /* Take up full width on mobile */
-                margin-bottom: 20px; /* Add space between images */
+                width: 100%;
+                margin-bottom: 20px;
             }
+
             .translate-btn {
-                position: relative;
-                bottom: 0;
-                transform: none;
-                margin-top: 20px; /* Ensure button has some space from images */
-                left: 0;  /* Center button */
-                right: 0;
-                margin-left: auto;
-                margin-right: auto; /* Center the button in the middle */
+                width: 100%;
+                margin-top: 20px;
             }
         }
     </style>
@@ -125,7 +127,8 @@
 </nav>
 
 <section id="about">
-    <!-- About text removed as requested -->
+    <h2>About</h2>
+    <h4>Welcome to Mount Olive Chinese Restaurant.</h4>
 </section>
 
 <section id="menu">
@@ -155,40 +158,48 @@
 
 <section id="contact">
     <h2>Contact Us</h2>
-        Address: <a href="https://g.co/kgs/uRGDR6Y" target="_blank">1025 N Breazeale Ave, Mt Olive, NC 28365</a>
+    <p>Address: <a href="https://g.co/kgs/uRGDR6Y" target="_blank">1025 N Breazeale Ave, Mt Olive, NC 28365</a></p>
     <p>Phone: <a href="tel:+19196580600">(919) 658-0600</a></p>
 </section>
 
 <script>
-    // Function to toggle the English/Spanish menu visibility
     function toggleMenu() {
         const englishMenuItems = document.querySelectorAll('.english-menu');
         const spanishMenuItems = document.querySelectorAll('.spanish-menu');
         const button = document.querySelector('.translate-btn');
 
-        // Toggle visibility of both menus
         if (button.textContent === 'Traducir al Español') {
-            // Show Spanish menu and hide English menu
             englishMenuItems.forEach(item => {
                 item.style.display = 'none';
             });
             spanishMenuItems.forEach(item => {
                 item.style.display = 'block';
             });
-            // Change button text to "Translate to English"
             button.textContent = 'Translate to English';
         } else {
-            // Show English menu and hide Spanish menu
             spanishMenuItems.forEach(item => {
                 item.style.display = 'none';
             });
             englishMenuItems.forEach(item => {
                 item.style.display = 'block';
             });
-            // Change button text back to "Traducir al Español"
             button.textContent = 'Traducir al Español';
         }
     }
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
 </script>
 
 </body>
