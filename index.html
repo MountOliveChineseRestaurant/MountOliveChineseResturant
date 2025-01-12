@@ -72,7 +72,7 @@
         /* Style for the translate button */
         .translate-btn {
             position: absolute;
-            bottom: -50px;  /* Adjust the position so it sits just below the menu */
+            bottom: -60px;  /* Ensure button is at the bottom */
             left: 50%;
             transform: translateX(-50%);
             padding: 10px 20px;
@@ -93,6 +93,7 @@
             .menu {
                 flex-direction: column;  /* Stack the items vertically */
                 align-items: center; /* Ensure items are centered */
+                position: relative;  /* Allow for relative positioning of the button */
             }
             .menu-item {
                 width: 100%;  /* Take up full width on mobile */
@@ -103,6 +104,10 @@
                 bottom: 0;
                 transform: none;
                 margin-top: 20px; /* Ensure button has some space from images */
+                left: 0;  /* Center button */
+                right: 0;
+                margin-left: auto;
+                margin-right: auto; /* Center the button in the middle */
             }
         }
     </style>
