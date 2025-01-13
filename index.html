@@ -280,11 +280,19 @@
         return hours[dayName];
     }
 
-    function updateSchedule() {
-        const todaySchedule = getTodaySchedule();
-        const scheduleElement = document.getElementById("announcement-content-1");
+function updateSchedule() {
+    const today = new Date();
+    const dayName = daysOfWeek[today.getDay()];
+    const todaySchedule = hours[dayName];
+    const scheduleElement = document.getElementById("announcement-content-1");
+
+    if (todaySchedule === "Closed") {
+        scheduleElement.innerHTML = "We are closed today.";
+    } else {
         scheduleElement.innerHTML = `We are open today from ${todaySchedule}.`;
     }
+}
+
 
     updateSchedule();
 
