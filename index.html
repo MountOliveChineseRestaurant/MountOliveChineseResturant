@@ -125,6 +125,26 @@
             max-width: 800px;
         }
 
+        /* New Special Dates Box Style */
+        #special-dates {
+            background-color: #e6f7ff;
+            border: 1px solid #66b3ff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        #special-dates h3 {
+            margin: 0 0 10px;
+            color: #0066cc;
+        }
+
+        #special-dates p {
+            margin: 0 0 10px;
+        }
+
         .announcement h3 {
             margin: 0 0 10px;
             color: #a67c00;
@@ -223,9 +243,16 @@
         <h3 id="announcement-title-1">Today's Schedule</h3>
         <p id="announcement-content-1">...</p>
     </div>
+
+    <!-- New Special Dates Box with updated message -->
+    <div class="announcement" id="special-dates">
+        <h3 id="special-dates-title">Special Dates</h3>
+        <p id="special-dates-message">Nothing here for now, check back later.</p>
+    </div>
+
     <div class="announcement" id="upcoming-closure">
         <h3 id="closure-title">Upcoming Closure</h3>
-        <p id="closure-message">We will be opened from 12:00 PM - 8:00 PM on Sunday, January 19th for maintenance.</p>
+        <p id="closure-message">We will be open from 12:00 PM - 8:00 PM on Sunday, January 19th for maintenance.</p>
     </div>
 </section>
 
@@ -280,74 +307,78 @@
         return hours[dayName];
     }
 
-function updateSchedule() {
-    const today = new Date();
-    const dayName = daysOfWeek[today.getDay()];
-    const todaySchedule = hours[dayName];
-    const scheduleElement = document.getElementById("announcement-content-1");
+    function updateSchedule() {
+        const today = new Date();
+        const dayName = daysOfWeek[today.getDay()];
+        const todaySchedule = hours[dayName];
+        const scheduleElement = document.getElementById("announcement-content-1");
 
-    if (todaySchedule === "Closed") {
-        scheduleElement.innerHTML = "We are closed today.";
-    } else {
-        scheduleElement.innerHTML = `We are open today from ${todaySchedule}.`;
+        if (todaySchedule === "Closed") {
+            scheduleElement.innerHTML = "We are closed today.";
+        } else {
+            scheduleElement.innerHTML = `We are open today from ${todaySchedule}.`;
+        }
     }
-}
-
 
     updateSchedule();
 
-function toggleTranslation() {
-    const isSpanish = document.getElementById("translate-btn").textContent === "Traducir al Español";
+    function toggleTranslation() {
+        const isSpanish = document.getElementById("translate-btn").textContent === "Traducir al Español";
 
-    const today = new Date();
-    const dayName = daysOfWeek[today.getDay()];
-    const todaySchedule = hours[dayName];
+        const today = new Date();
+        const dayName = daysOfWeek[today.getDay()];
+        const todaySchedule = hours[dayName];
 
-    if (isSpanish) {
-        document.getElementById("header-title").textContent = "Restaurante Chino Mount Olive";
-        document.getElementById("about-heading").textContent = "Acerca de";
-        document.getElementById("about-description").textContent = "Bienvenido al Restaurante Chino Mount Olive.";
-        document.getElementById("hours-heading").textContent = "Horas";
-        document.getElementById("announcements-heading").textContent = "Anuncios";
-        document.getElementById("menu-heading").textContent = "Nuestro Menú";
-        document.getElementById("contact-heading").textContent = "Contáctenos";
-        document.getElementById("announcement-title-1").textContent = "Horario de Hoy";
-        document.getElementById("closure-title").textContent = "Cierre Próximo";
+        if (isSpanish) {
+            document.getElementById("header-title").textContent = "Restaurante Chino Mount Olive";
+            document.getElementById("about-heading").textContent = "Acerca de";
+            document.getElementById("about-description").textContent = "Bienvenido al Restaurante Chino Mount Olive.";
+            document.getElementById("hours-heading").textContent = "Horas";
+            document.getElementById("announcements-heading").textContent = "Anuncios";
+            document.getElementById("menu-heading").textContent = "Nuestro Menú";
+            document.getElementById("contact-heading").textContent = "Contáctenos";
+            document.getElementById("announcement-title-1").textContent = "Horario de Hoy";
+            document.getElementById("closure-title").textContent = "Cierre Próximo";
 
-        if (todaySchedule === "Closed") {
-            document.getElementById("announcement-content-1").textContent = "Estamos cerrados hoy.";
+            if (todaySchedule === "Closed") {
+                document.getElementById("announcement-content-1").textContent = "Estamos cerrados hoy.";
+            } else {
+                document.getElementById("announcement-content-1").textContent = `Estamos abiertos hoy de ${todaySchedule}.`;
+            }
+
+            document.getElementById("special-dates-title").textContent = "Fechas Especiales";
+            document.getElementById("special-dates-message").textContent = "Nada por ahora, ¡vuelva más tarde!";
+
+            document.getElementById("translate-btn").textContent = "Translate to English";
+
+            document.getElementById("menu-image-1").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/Spanish%20ver%20menu%20part%201.png";
+            document.getElementById("menu-image-2").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/Spanish%20ver%20menu%20part%202.png";
         } else {
-            document.getElementById("announcement-content-1").textContent = `Estamos abiertos hoy de ${todaySchedule}.`;
+            document.getElementById("header-title").textContent = "Mount Olive Chinese Restaurant";
+            document.getElementById("about-heading").textContent = "About";
+            document.getElementById("about-description").textContent = "Welcome to Mount Olive Chinese Restaurant.";
+            document.getElementById("hours-heading").textContent = "Hours";
+            document.getElementById("announcements-heading").textContent = "Announcements";
+            document.getElementById("menu-heading").textContent = "Our Menu";
+            document.getElementById("contact-heading").textContent = "Contact Us";
+            document.getElementById("announcement-title-1").textContent = "Today's Schedule";
+
+            if (todaySchedule === "Closed") {
+                document.getElementById("announcement-content-1").textContent = "We are closed today.";
+            } else {
+                document.getElementById("announcement-content-1").textContent = `We are open today from ${todaySchedule}.`;
+            }
+
+            document.getElementById("closure-title").textContent = "Upcoming Closure";
+            document.getElementById("special-dates-title").textContent = "Special Dates";
+            document.getElementById("special-dates-message").textContent = "Nothing here for now, check back later.";
+
+            document.getElementById("translate-btn").textContent = "Traducir al Español";
+
+            document.getElementById("menu-image-1").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/English%20ver%20menu%20part%201.png";
+            document.getElementById("menu-image-2").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/English%20ver%20menu%20part%202.png";
         }
-
-        document.getElementById("translate-btn").textContent = "Translate to English";
-
-        document.getElementById("menu-image-1").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/Spanish%20ver%20menu%20part%201.png";
-        document.getElementById("menu-image-2").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/Spanish%20ver%20menu%20part%202.png";
-    } else {
-        document.getElementById("header-title").textContent = "Mount Olive Chinese Restaurant";
-        document.getElementById("about-heading").textContent = "About";
-        document.getElementById("about-description").textContent = "Welcome to Mount Olive Chinese Restaurant.";
-        document.getElementById("hours-heading").textContent = "Hours";
-        document.getElementById("announcements-heading").textContent = "Announcements";
-        document.getElementById("menu-heading").textContent = "Our Menu";
-        document.getElementById("contact-heading").textContent = "Contact Us";
-        document.getElementById("announcement-title-1").textContent = "Today's Schedule";
-
-        if (todaySchedule === "Closed") {
-            document.getElementById("announcement-content-1").textContent = "We are closed today.";
-        } else {
-            document.getElementById("announcement-content-1").textContent = `We are open today from ${todaySchedule}.`;
-        }
-
-        document.getElementById("closure-title").textContent = "Upcoming Closure";
-        document.getElementById("translate-btn").textContent = "Traducir al Español";
-
-        document.getElementById("menu-image-1").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/English%20ver%20menu%20part%201.png";
-        document.getElementById("menu-image-2").src = "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/English%20ver%20menu%20part%202.png";
     }
-}
-
 </script>
 
 </body>
