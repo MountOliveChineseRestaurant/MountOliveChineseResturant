@@ -126,34 +126,6 @@
             max-width: 800px;
         }
 
-        #special-dates {
-            background-color: #e6f7ff;
-            border: 1px solid #66b3ff;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: left;
-            margin: 20px auto;
-            max-width: 800px;
-        }
-
-        #special-dates h3 {
-            margin: 0 0 10px;
-            color: #0066cc;
-        }
-
-        #special-dates p {
-            margin: 0 0 10px;
-        }
-
-        .announcement h3 {
-            margin: 0 0 10px;
-            color: #a67c00;
-        }
-
-        .announcement p {
-            margin: 0 0 10px;
-        }
-
         @media (max-width: 768px) {
             .menu {
                 flex-direction: column;
@@ -227,9 +199,9 @@
             <p id="announcement-content-1">...</p>
         </div>
 
-        <div class="announcement" id="special-dates">
+        <div class="announcement">
             <h3 id="special-dates-title">Special Dates</h3>
-            <p id="special-dates-message">We are open on Christmas 🎄.</p>
+            <p id="special-dates-message">No special dates at this time.</p>
         </div>
 
         <div class="announcement" id="upcoming-closure">
@@ -297,7 +269,7 @@
                 closureTitle: "Upcoming Closure",
                 closureMessage: "Nothing here for now, check back later.",
                 specialDatesTitle: "Special Dates",
-                specialDatesMessage: "We are open on Christmas 🎄.",
+                specialDatesMessage: "No special dates at this time.",
                 translateBtn: "Traducir al Español"
             },
             es: {
@@ -312,7 +284,7 @@
                 closureTitle: "Cierre Próximo",
                 closureMessage: "No hay cierres próximos, vuelve más tarde.",
                 specialDatesTitle: "Fechas Especiales",
-                specialDatesMessage: "Estaremos abiertos en Navidad 🎄.",
+                specialDatesMessage: "No hay fechas especiales en este momento.",
                 translateBtn: "Translate to English"
             }
         };
@@ -324,6 +296,14 @@
 
         function setLanguage(lang) {
             document.getElementById("header-title").textContent = translations[lang].headerTitle;
+
+            // Nav links
+            document.getElementById("nav-about").textContent = translations[lang].aboutHeading;
+            document.getElementById("nav-announcements").textContent = translations[lang].announcementsHeading;
+            document.getElementById("nav-menu").textContent = translations[lang].menuHeading;
+            document.getElementById("nav-contact").textContent = translations[lang].contactHeading;
+
+            // Section headings and content
             document.getElementById("about-heading").textContent = translations[lang].aboutHeading;
             document.getElementById("about-description").textContent = translations[lang].aboutDescription;
             document.getElementById("hours-heading").textContent = translations[lang].hoursHeading;
@@ -339,7 +319,6 @@
 
             const todaySchedule = getTodaySchedule();
             const scheduleEl = document.getElementById("announcement-content-1");
-
             scheduleEl.textContent =
                 todaySchedule === "Closed"
                     ? lang === "es"
