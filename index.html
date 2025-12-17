@@ -126,6 +126,34 @@
             max-width: 800px;
         }
 
+        #special-dates {
+            background-color: #e6f7ff;
+            border: 1px solid #66b3ff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        #special-dates h3 {
+            margin: 0 0 10px;
+            color: #0066cc;
+        }
+
+        #special-dates p {
+            margin: 0 0 10px;
+        }
+
+        .announcement h3 {
+            margin: 0 0 10px;
+            color: #a67c00;
+        }
+
+        .announcement p {
+            margin: 0 0 10px;
+        }
+
         @media (max-width: 768px) {
             .menu {
                 flex-direction: column;
@@ -199,9 +227,9 @@
             <p id="announcement-content-1">...</p>
         </div>
 
-        <div class="announcement">
+        <div class="announcement" id="special-dates">
             <h3 id="special-dates-title">Special Dates</h3>
-            <p id="special-dates-message">No special dates at this time.</p>
+            <p id="special-dates-message">We are open on Christmas, Dec. 25th, 2025 🎄.</p>
         </div>
 
         <div class="announcement" id="upcoming-closure">
@@ -211,7 +239,7 @@
     </section>
 
     <section id="menu">
-        <h2 id="menu-heading">Our Menu</h2>
+        <h2 id="menu-heading">Menu</h2>
         <div class="menu">
             <div class="menu-item" id="menu-item-1">
                 <img id="menu-image-1" src="https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/English%20ver%20menu%20part%201.png" alt="English Menu Part 1">
@@ -259,32 +287,40 @@
         const translations = {
             en: {
                 headerTitle: "Mount Olive Chinese Restaurant",
+                navAbout: "About",
+                navAnnouncements: "Announcements",
+                navMenu: "Menu",
+                navContact: "Contact",
                 aboutHeading: "About",
                 aboutDescription: "Welcome to Mount Olive Chinese Restaurant.",
                 hoursHeading: "Hours",
                 announcementsHeading: "Announcements",
-                menuHeading: "Our Menu",
+                menuHeading: "Menu",
                 contactHeading: "Contact Us",
                 todayScheduleTitle: "Today's Schedule",
                 closureTitle: "Upcoming Closure",
                 closureMessage: "Nothing here for now, check back later.",
                 specialDatesTitle: "Special Dates",
-                specialDatesMessage: "No special dates at this time.",
+                specialDatesMessage: "We are open on Christmas, Dec. 25th, 2025 🎄.",
                 translateBtn: "Traducir al Español"
             },
             es: {
                 headerTitle: "Restaurante Chino Mount Olive",
+                navAbout: "Acerca de",
+                navAnnouncements: "Anuncios",
+                navMenu: "Menú",
+                navContact: "Contáctenos",
                 aboutHeading: "Acerca de",
                 aboutDescription: "Bienvenido al Restaurante Chino Mount Olive.",
                 hoursHeading: "Horas",
                 announcementsHeading: "Anuncios",
-                menuHeading: "Nuestro Menú",
+                menuHeading: "Menú",
                 contactHeading: "Contáctenos",
                 todayScheduleTitle: "Horario de Hoy",
                 closureTitle: "Cierre Próximo",
                 closureMessage: "No hay cierres próximos, vuelve más tarde.",
                 specialDatesTitle: "Fechas Especiales",
-                specialDatesMessage: "No hay fechas especiales en este momento.",
+                specialDatesMessage: "Estamos abiertos en Navidad, 25 de diciembre de 2025 🎄.",
                 translateBtn: "Translate to English"
             }
         };
@@ -295,27 +331,26 @@
         }
 
         function setLanguage(lang) {
-            document.getElementById("header-title").textContent = translations[lang].headerTitle;
+            const t = translations[lang];
 
-            // Nav links
-            document.getElementById("nav-about").textContent = translations[lang].aboutHeading;
-            document.getElementById("nav-announcements").textContent = translations[lang].announcementsHeading;
-            document.getElementById("nav-menu").textContent = translations[lang].menuHeading;
-            document.getElementById("nav-contact").textContent = translations[lang].contactHeading;
+            document.getElementById("header-title").textContent = t.headerTitle;
+            document.getElementById("nav-about").textContent = t.navAbout;
+            document.getElementById("nav-announcements").textContent = t.navAnnouncements;
+            document.getElementById("nav-menu").textContent = t.navMenu;
+            document.getElementById("nav-contact").textContent = t.navContact;
 
-            // Section headings and content
-            document.getElementById("about-heading").textContent = translations[lang].aboutHeading;
-            document.getElementById("about-description").textContent = translations[lang].aboutDescription;
-            document.getElementById("hours-heading").textContent = translations[lang].hoursHeading;
-            document.getElementById("announcements-heading").textContent = translations[lang].announcementsHeading;
-            document.getElementById("menu-heading").textContent = translations[lang].menuHeading;
-            document.getElementById("contact-heading").textContent = translations[lang].contactHeading;
-            document.getElementById("announcement-title-1").textContent = translations[lang].todayScheduleTitle;
-            document.getElementById("closure-title").textContent = translations[lang].closureTitle;
-            document.getElementById("closure-message").textContent = translations[lang].closureMessage;
-            document.getElementById("special-dates-title").textContent = translations[lang].specialDatesTitle;
-            document.getElementById("special-dates-message").textContent = translations[lang].specialDatesMessage;
-            document.getElementById("translate-btn").textContent = translations[lang].translateBtn;
+            document.getElementById("about-heading").textContent = t.aboutHeading;
+            document.getElementById("about-description").textContent = t.aboutDescription;
+            document.getElementById("hours-heading").textContent = t.hoursHeading;
+            document.getElementById("announcements-heading").textContent = t.announcementsHeading;
+            document.getElementById("menu-heading").textContent = t.menuHeading;
+            document.getElementById("contact-heading").textContent = t.contactHeading;
+
+            document.getElementById("announcement-title-1").textContent = t.todayScheduleTitle;
+            document.getElementById("closure-title").textContent = t.closureTitle;
+            document.getElementById("closure-message").textContent = t.closureMessage;
+            document.getElementById("special-dates-title").textContent = t.specialDatesTitle;
+            document.getElementById("special-dates-message").textContent = t.specialDatesMessage;
 
             const todaySchedule = getTodaySchedule();
             const scheduleEl = document.getElementById("announcement-content-1");
@@ -339,6 +374,8 @@
                 document.getElementById("menu-image-2").src =
                     "https://raw.githubusercontent.com/MountOliveChineseResturant/MountOliveChineseResturant/main/English%20ver%20menu%20part%202.png";
             }
+
+            document.getElementById("translate-btn").textContent = t.translateBtn;
         }
 
         setLanguage("en");
