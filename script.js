@@ -22,7 +22,7 @@ const translations = {
             specialDatesTitle: "Special Dates",
             specialDatesMessage: "Nothing here for now, check back later.",
             closureTitle: "Upcoming Closure",
-            closureMessage: "We will be closing early on December 28th at 7:30 PM."
+            closureMessage: "We will be closing early on December 28th at 7:30 PM. "
         },
         menu: {
             heading: "Menu",
