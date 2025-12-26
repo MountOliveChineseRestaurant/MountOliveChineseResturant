@@ -1,0 +1,182 @@
+/* ===== Base Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #2c2c2c, #121212);
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(135deg, #3a3a3a, #1e1e1e);
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 2.8rem;
+}
+
+/* ===== Navigation ===== */
+nav {
+    background-color: #1e1e1e;
+    padding: 15px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+nav a {
+    color: #cfcfcf; /* muted grey */
+    text-decoration: none;
+    margin: 0 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    color: #ffb980; /* soft accent on hover */
+    transform: scale(1.05);
+}
+
+/* ===== Sections ===== */
+section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Tables ===== */
+table {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(30,30,30,0.85);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+table th,
+table td {
+    border: 1px solid #333;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+table th {
+    background: #333;
+    color: #fff;
+}
+
+/* ===== Menu ===== */
+.menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.menu-item {
+    width: 48%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item img {
+    width: 100%;
+    display: block;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.7);
+}
+
+/* ===== Translate Button ===== */
+.translate-btn {
+    margin: 40px auto 0;
+    padding: 14px 32px;
+    background: #2e2e2e; /* muted dark button */
+    color: #e0e0e0; /* soft text */
+    border: 1px solid #555;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    display: block;
+}
+
+.translate-btn:hover {
+    background: #3a3a3a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* ===== Announcements ===== */
+.announcement {
+    background: rgba(40, 40, 40, 0.9);
+    border-left: 6px solid #ff8a65;
+    padding: 25px;
+    margin: 25px auto;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.announcement:hover {
+    transform: translateY(-5px);
+}
+
+#special-dates {
+    border-left-color: #4da6ff;
+    background: rgba(30, 45, 60, 0.85);
+}
+
+/* ===== Contact ===== */
+#contact a {
+    color: #cfcfcf;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+#contact a:hover {
+    color: #ffb980;
+    text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .menu-item {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+}
