@@ -20,9 +20,9 @@ const translations = {
             closed: "We are closed today.",
             open: "We are open today from",
             specialDatesTitle: "Special Dates",
-            specialDatesMessage: "We are open on Christmas, Dec. 25th, 2025 🎄.",
+            specialDatesMessage: "Nothing here for now, check back later.",
             closureTitle: "Upcoming Closure",
-            closureMessage: "Nothing here for now, check back later."
+            closureMessage: "We will be closing early on December 28th at 7:30 PM."
         },
         menu: {
             heading: "Menu",
@@ -54,9 +54,9 @@ const translations = {
             closed: "Estamos cerrados hoy.",
             open: "Estamos abiertos hoy de",
             specialDatesTitle: "Fechas Especiales",
-            specialDatesMessage: "Estamos abiertos en Navidad, 25 de diciembre de 2025 🎄.",
+            specialDatesMessage: "Nada por ahora, vuelve más tarde.",
             closureTitle: "Cierre Próximo",
-            closureMessage: "Nada por ahora, vuelve más tarde."
+            closureMessage: "Cerraremos antes de lo habitual el 28 de diciembre, a las 7:30 PM."
         },
         menu: {
             heading: "Menú",
