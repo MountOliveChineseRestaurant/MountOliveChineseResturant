@@ -22,7 +22,7 @@ const translations = {
             specialDatesTitle: "Special Dates",
             specialDatesMessage: "Nothing here for now, check back later.",
             closureTitle: "Upcoming Closure",
-            closureMessage: "We will be closing early on December 28th at 7:30 PM. "
+            closureMessage: "We will be closing early on December 28th at 8:30 PM. "
         },
         menu: {
             heading: "Menu",
@@ -56,7 +56,7 @@ const translations = {
             specialDatesTitle: "Fechas Especiales",
             specialDatesMessage: "Nada por ahora, vuelve más tarde.",
             closureTitle: "Cierre Próximo",
-            closureMessage: "Cerraremos antes de lo habitual el 28 de diciembre, a las 7:30 PM."
+            closureMessage: "Cerraremos antes de lo habitual el 28 de diciembre, a las 8:30 PM."
         },
         menu: {
             heading: "Menú",
